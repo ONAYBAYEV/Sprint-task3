@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>КУРСЫ ВАЛЮТ</title>
+    <style>
+        .body{
+        background-color: rgb(197, 80, 80);
+        }
+        .container{
+            background-color: white;
+            border: solid ;
+            border-width:1 px;
+            
+            display: flex;
+            border-radius: 5px;
+            
+            margin-right: 600px;
+            align-items: center; 
+        }
+        .container div{
+            margin-right:50px
+        }
+        .input{
+            background-color: rgb(219, 219, 219);
+            border-radius: 5PX;
+        }
+    
+    </style>
+</head>
+
+<div class="container " style="align-items: center; justify-content: space-around;">
+    <div>
+        <label for="money">Enter sum</label><br>
+        <input type="number" id="money" onkeyup="esepte()">
+        <select name="" id="type" onchange="esepte()">
+            <option id="tenge" value="KZT">KZT</option>
+            <option id="dollar" value="USD">USD</option>
+            <option id="euro" value="EUR">EUR</option>
+        </select>
+    </div>
+    <div><b>KZT(tenge)</b>
+    <br>
+        <input class="input" id="kzt" type="text" disabled value="">
+    </div>
+    <div><b>USD(dollar)</b><br>
+        <input class="input" id="usd" type="text" disabled value="">
+    </div>
+    <div><b>EUR(euro)</b><br>
+        <input  class="input" id="eur" type="text" disabled value=" ">
+    </div>
+</div>
+<body>
+<script type="text/javascript">
+    function esepte() {
+
+
+        if (document.getElementById("money").value != null) {
+
+            if (document.getElementById("type").value === 'KZT') {
+                let money = document.getElementById("money").value;
+                let usd = money / 429;
+                let eur = money / 507;
+                document.getElementById("kzt").value = null;
+
+                document.getElementById("usd").value = usd;
+
+                document.getElementById("eur").value = eur;
+
+
+            }
+
+            if (document.getElementById("type").value === 'USD') {
+                let money = document.getElementById("money").value;
+                let kzt = money * 429;
+                let eur = money * 1.18;
+                document.getElementById("usd").value = null;
+
+                document.getElementById("kzt").value = kzt;
+
+                document.getElementById("eur").value = eur;
+
+
+            }
+            if (document.getElementById("type").value === 'EUR') {
+                let money = document.getElementById("money").value;
+                let kzt = money * 507;
+                let usd = money / 1.18;
+                document.getElementById("eur").value = null;
+
+
+                document.getElementById("kzt").value = kzt;
+
+                document.getElementById("usd").value = usd;
+
+
+            }
+
+
+        }
+    }
+
+
+</script>
+</body>
+</html>
